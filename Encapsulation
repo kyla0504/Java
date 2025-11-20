@@ -1,33 +1,33 @@
-public class EncapExample {
+class BankAccount {
+    private double balance;
 
+    public BankAccount(double initialBalance) {
+        balance = initialBalance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        } else {
+            System.out.println("Deposit amount must be positive!");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Invalid withdrawal amount!");
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+
+public class Main {
     public static void main(String[] args) {
-        Person p = new Person();
-
-        p.setName("Kyla");
-        p.setAge(19);
-
-        System.out.println("Name: " + p.getName());
-        System.out.println("Age: " + p.getAge());
-    }
-}
-
-class Person {
-    private String name;
-    private int age;
-
-    public void setName(String n) {
-        name = n;
-    }
-
-    public void setAge(int a) {
-        age = a;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-}
+        BankAccount account = new BankAccount(5000);
+        account.deposit(1000);
+        account.withdraw(500);
