@@ -1,23 +1,47 @@
-public class AbstractionExample {
+abstract class Employee {
+    String name;
 
+    Employee(String name) {
+        this.name = name;
+    }
+
+    abstract double calculate_pay();
+}
+
+class HourlyEmployee extends Employee {
+    double ratePerHour;
+    int hoursWorked;
+
+    HourlyEmployee(String name, double ratePerHour, int hoursWorked) {
+        super(name);
+        this.ratePerHour = ratePerHour;
+        this.hoursWorked = hoursWorked;
+    }
+
+    double calculate_pay() {
+        return ratePerHour * hoursWorked;
+    }
+}
+
+class SalariedEmployee extends Employee {
+    double monthlySalary;
+
+    SalariedEmployee(String name, double monthlySalary) {
+        super(name);
+        this.monthlySalary = monthlySalary;
+    }
+
+    double calculate_pay() {
+        return monthlySalary;
+    }
+}
+
+public class Main {
     public static void main(String[] args) {
-        Animal myDog = new Dog();  
-        myDog.eat();   
-        myDog.sound(); 
-    }
-}
+        Employee e1 = new HourlyEmployee("Alex", 150, 40);
+        Employee e2 = new SalariedEmployee("Jamie", 30000);
 
-abstract class Animal {
-    abstract void sound();
-
-    void eat() {          
-        System.out.println("This animal eats food.");
-    }
-}
-
-class Dog extends Animal {
-    @Override
-    void sound() {
-        System.out.println("Dog barks.");
+        System.out.println(e1.name + "'s pay: " + e1.calculate_pay());
+        System.out.println(e2.name + "'s pay: " + e2.calculate_pay());
     }
 }
