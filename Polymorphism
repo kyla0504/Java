@@ -1,0 +1,27 @@
+class Printer {
+    void print_document() {
+        System.out.println("Printing a document...");
+    }
+}
+
+class InkPrinter extends Printer {
+    void print_document() {
+        System.out.println("Ink Printer is printing using ink.");
+    }
+}
+
+class LaserPrinter extends Printer {
+    void print_document() {
+        System.out.println("Laser Printer is printing using toner.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Printer p1 = new InkPrinter();   
+        Printer p2 = new LaserPrinter();
+
+        p1.print_document();  
+        p2.print_document();  
+    }
+}
