@@ -38,8 +38,8 @@ class SalariedEmployee extends Employee {
 
 public class Main {
     public static void main(String[] args) {
-        Employee e1 = new HourlyEmployee("Alex", 150, 40);
-        Employee e2 = new SalariedEmployee("Jamie", 30000);
+        Employee e1 = new HourlyEmployee("Rianne", 240, 40);
+        Employee e2 = new SalariedEmployee("Kei", 10000);
 
         System.out.println(e1.name + "'s pay: " + e1.calculate_pay());
         System.out.println(e2.name + "'s pay: " + e2.calculate_pay());
